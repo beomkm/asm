@@ -1,0 +1,206 @@
+
+unary-gcc.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <main>:
+#include <stdio.h>
+
+int main(void)
+{
+   0:	55                   	push   rbp
+   1:	48 89 e5             	mov    rbp,rsp
+   4:	48 83 ec 10          	sub    rsp,0x10
+	int a, b;
+
+	a = 5;
+   8:	c7 45 f8 05 00 00 00 	mov    DWORD PTR [rbp-0x8],0x5
+	b = a++;
+   f:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  12:	8d 50 01             	lea    edx,[rax+0x1]
+  15:	89 55 f8             	mov    DWORD PTR [rbp-0x8],edx
+  18:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	printf("b = a++;\n");
+  1b:	bf 00 00 00 00       	mov    edi,0x0
+  20:	e8 00 00 00 00       	call   25 <main+0x25>
+	printf("b=%d\n\n", b);
+  25:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  28:	89 c6                	mov    esi,eax
+  2a:	bf 00 00 00 00       	mov    edi,0x0
+  2f:	b8 00 00 00 00       	mov    eax,0x0
+  34:	e8 00 00 00 00       	call   39 <main+0x39>
+
+	a = 5;
+  39:	c7 45 f8 05 00 00 00 	mov    DWORD PTR [rbp-0x8],0x5
+	b = ++a;
+  40:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+  44:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  47:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	printf("b = ++a;\n");
+  4a:	bf 00 00 00 00       	mov    edi,0x0
+  4f:	e8 00 00 00 00       	call   54 <main+0x54>
+	printf("b=%d\n\n", b);
+  54:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  57:	89 c6                	mov    esi,eax
+  59:	bf 00 00 00 00       	mov    edi,0x0
+  5e:	b8 00 00 00 00       	mov    eax,0x0
+  63:	e8 00 00 00 00       	call   68 <main+0x68>
+
+	a = 5;
+  68:	c7 45 f8 05 00 00 00 	mov    DWORD PTR [rbp-0x8],0x5
+	b = a + (a++);
+  6f:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  72:	8d 50 01             	lea    edx,[rax+0x1]
+  75:	89 55 f8             	mov    DWORD PTR [rbp-0x8],edx
+  78:	8b 55 f8             	mov    edx,DWORD PTR [rbp-0x8]
+  7b:	01 d0                	add    eax,edx
+  7d:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	printf("b = a + (a++);\n");
+  80:	bf 00 00 00 00       	mov    edi,0x0
+  85:	e8 00 00 00 00       	call   8a <main+0x8a>
+	printf("b=%d\n\n", b);
+  8a:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  8d:	89 c6                	mov    esi,eax
+  8f:	bf 00 00 00 00       	mov    edi,0x0
+  94:	b8 00 00 00 00       	mov    eax,0x0
+  99:	e8 00 00 00 00       	call   9e <main+0x9e>
+
+	a = 5;
+  9e:	c7 45 f8 05 00 00 00 	mov    DWORD PTR [rbp-0x8],0x5
+	b = (a++) + a;
+  a5:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  a8:	8d 50 01             	lea    edx,[rax+0x1]
+  ab:	89 55 f8             	mov    DWORD PTR [rbp-0x8],edx
+  ae:	8b 55 f8             	mov    edx,DWORD PTR [rbp-0x8]
+  b1:	01 d0                	add    eax,edx
+  b3:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	printf("b = (a++) + a;\n");
+  b6:	bf 00 00 00 00       	mov    edi,0x0
+  bb:	e8 00 00 00 00       	call   c0 <main+0xc0>
+	printf("b=%d\n\n", b);
+  c0:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  c3:	89 c6                	mov    esi,eax
+  c5:	bf 00 00 00 00       	mov    edi,0x0
+  ca:	b8 00 00 00 00       	mov    eax,0x0
+  cf:	e8 00 00 00 00       	call   d4 <main+0xd4>
+
+	a = 5;
+  d4:	c7 45 f8 05 00 00 00 	mov    DWORD PTR [rbp-0x8],0x5
+	b = a + (++a);
+  db:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+  df:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  e2:	01 c0                	add    eax,eax
+  e4:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	printf("b = a + (++a);\n");
+  e7:	bf 00 00 00 00       	mov    edi,0x0
+  ec:	e8 00 00 00 00       	call   f1 <main+0xf1>
+	printf("b=%d\n\n", b);
+  f1:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  f4:	89 c6                	mov    esi,eax
+  f6:	bf 00 00 00 00       	mov    edi,0x0
+  fb:	b8 00 00 00 00       	mov    eax,0x0
+ 100:	e8 00 00 00 00       	call   105 <main+0x105>
+
+	a = 5;
+ 105:	c7 45 f8 05 00 00 00 	mov    DWORD PTR [rbp-0x8],0x5
+	b = (++a) + a;
+ 10c:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+ 110:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+ 113:	01 c0                	add    eax,eax
+ 115:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	printf("b = (++a) + a;\n");
+ 118:	bf 00 00 00 00       	mov    edi,0x0
+ 11d:	e8 00 00 00 00       	call   122 <main+0x122>
+	printf("b=%d\n\n", b);
+ 122:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+ 125:	89 c6                	mov    esi,eax
+ 127:	bf 00 00 00 00       	mov    edi,0x0
+ 12c:	b8 00 00 00 00       	mov    eax,0x0
+ 131:	e8 00 00 00 00       	call   136 <main+0x136>
+
+	a = 5;
+ 136:	c7 45 f8 05 00 00 00 	mov    DWORD PTR [rbp-0x8],0x5
+	b = (a++) + (a++);
+ 13d:	8b 55 f8             	mov    edx,DWORD PTR [rbp-0x8]
+ 140:	8d 42 01             	lea    eax,[rdx+0x1]
+ 143:	89 45 f8             	mov    DWORD PTR [rbp-0x8],eax
+ 146:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+ 149:	8d 48 01             	lea    ecx,[rax+0x1]
+ 14c:	89 4d f8             	mov    DWORD PTR [rbp-0x8],ecx
+ 14f:	01 d0                	add    eax,edx
+ 151:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	printf("b = (a++) + (a++);\n");
+ 154:	bf 00 00 00 00       	mov    edi,0x0
+ 159:	e8 00 00 00 00       	call   15e <main+0x15e>
+	printf("b=%d\n\n", b);
+ 15e:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+ 161:	89 c6                	mov    esi,eax
+ 163:	bf 00 00 00 00       	mov    edi,0x0
+ 168:	b8 00 00 00 00       	mov    eax,0x0
+ 16d:	e8 00 00 00 00       	call   172 <main+0x172>
+
+	a = 5;
+ 172:	c7 45 f8 05 00 00 00 	mov    DWORD PTR [rbp-0x8],0x5
+	b = (++a) + (++a);
+ 179:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+ 17d:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+ 181:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+ 184:	01 c0                	add    eax,eax
+ 186:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	printf("b = (++a) + (++a);\n");
+ 189:	bf 00 00 00 00       	mov    edi,0x0
+ 18e:	e8 00 00 00 00       	call   193 <main+0x193>
+	printf("b=%d\n\n", b);
+ 193:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+ 196:	89 c6                	mov    esi,eax
+ 198:	bf 00 00 00 00       	mov    edi,0x0
+ 19d:	b8 00 00 00 00       	mov    eax,0x0
+ 1a2:	e8 00 00 00 00       	call   1a7 <main+0x1a7>
+
+	a = 5;
+ 1a7:	c7 45 f8 05 00 00 00 	mov    DWORD PTR [rbp-0x8],0x5
+	b = (a++) + (++a);
+ 1ae:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+ 1b1:	8d 50 01             	lea    edx,[rax+0x1]
+ 1b4:	89 55 f8             	mov    DWORD PTR [rbp-0x8],edx
+ 1b7:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+ 1bb:	8b 55 f8             	mov    edx,DWORD PTR [rbp-0x8]
+ 1be:	01 d0                	add    eax,edx
+ 1c0:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	printf("b = (a++) + (++a);\n");
+ 1c3:	bf 00 00 00 00       	mov    edi,0x0
+ 1c8:	e8 00 00 00 00       	call   1cd <main+0x1cd>
+	printf("b=%d\n\n", b);
+ 1cd:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+ 1d0:	89 c6                	mov    esi,eax
+ 1d2:	bf 00 00 00 00       	mov    edi,0x0
+ 1d7:	b8 00 00 00 00       	mov    eax,0x0
+ 1dc:	e8 00 00 00 00       	call   1e1 <main+0x1e1>
+
+	a = 5;
+ 1e1:	c7 45 f8 05 00 00 00 	mov    DWORD PTR [rbp-0x8],0x5
+	b = (++a) + (a++);
+ 1e8:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+ 1ec:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+ 1ef:	8d 50 01             	lea    edx,[rax+0x1]
+ 1f2:	89 55 f8             	mov    DWORD PTR [rbp-0x8],edx
+ 1f5:	8b 55 f8             	mov    edx,DWORD PTR [rbp-0x8]
+ 1f8:	01 d0                	add    eax,edx
+ 1fa:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	printf("b = (++a) + (a++);\n");
+ 1fd:	bf 00 00 00 00       	mov    edi,0x0
+ 202:	e8 00 00 00 00       	call   207 <main+0x207>
+	printf("b=%d\n\n", b);
+ 207:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+ 20a:	89 c6                	mov    esi,eax
+ 20c:	bf 00 00 00 00       	mov    edi,0x0
+ 211:	b8 00 00 00 00       	mov    eax,0x0
+ 216:	e8 00 00 00 00       	call   21b <main+0x21b>
+
+
+	return 0;
+ 21b:	b8 00 00 00 00       	mov    eax,0x0
+}
+ 220:	c9                   	leave  
+ 221:	c3                   	ret    
