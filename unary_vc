@@ -1,0 +1,250 @@
+int main(void)
+{
+00DB1770  push        ebp  
+00DB1771  mov         ebp,esp  
+00DB1773  sub         esp,0D8h  
+00DB1779  push        ebx  
+00DB177A  push        esi  
+00DB177B  push        edi  
+00DB177C  lea         edi,[ebp-0D8h]  
+00DB1782  mov         ecx,36h  
+00DB1787  mov         eax,0CCCCCCCCh  
+00DB178C  rep stos    dword ptr es:[edi]  
+	int a, b;
+
+	a = 5;
+00DB178E  mov         dword ptr [a],5  
+	b = a--;
+00DB1795  mov         eax,dword ptr [a]  
+00DB1798  mov         dword ptr [b],eax  
+00DB179B  mov         ecx,dword ptr [a]  
+00DB179E  sub         ecx,1  
+00DB17A1  mov         dword ptr [a],ecx  
+	printf("b = a--;\n");
+00DB17A4  push        offset string "b = a--;\n" (0DB6B30h)  
+00DB17A9  call        _printf (0DB1320h)  
+00DB17AE  add         esp,4  
+	printf("b=%d\n\n", b);
+00DB17B1  mov         eax,dword ptr [b]  
+00DB17B4  push        eax  
+00DB17B5  push        offset string "b=%d\n\n" (0DB6B3Ch)  
+00DB17BA  call        _printf (0DB1320h)  
+00DB17BF  add         esp,8  
+
+	a = 5;
+00DB17C2  mov         dword ptr [a],5  
+	b = a++;
+00DB17C9  mov         eax,dword ptr [a]  
+00DB17CC  mov         dword ptr [b],eax  
+00DB17CF  mov         ecx,dword ptr [a]  
+00DB17D2  add         ecx,1  
+00DB17D5  mov         dword ptr [a],ecx  
+	printf("b = a++;\n");
+00DB17D8  push        offset string "b = a++;\n" (0DB6B44h)  
+00DB17DD  call        _printf (0DB1320h)  
+00DB17E2  add         esp,4  
+	printf("b=%d\n\n", b);
+00DB17E5  mov         eax,dword ptr [b]  
+00DB17E8  push        eax  
+00DB17E9  push        offset string "b=%d\n\n" (0DB6B3Ch)  
+00DB17EE  call        _printf (0DB1320h)  
+00DB17F3  add         esp,8  
+
+	a = 5;
+00DB17F6  mov         dword ptr [a],5  
+	b = ++a;
+00DB17FD  mov         eax,dword ptr [a]  
+00DB1800  add         eax,1  
+00DB1803  mov         dword ptr [a],eax  
+00DB1806  mov         ecx,dword ptr [a]  
+00DB1809  mov         dword ptr [b],ecx  
+	printf("b = ++a;\n");
+00DB180C  push        offset string "b = ++a;\n" (0DB6B50h)  
+	printf("b = ++a;\n");
+00DB1811  call        _printf (0DB1320h)  
+00DB1816  add         esp,4  
+	printf("b=%d\n\n", b);
+00DB1819  mov         eax,dword ptr [b]  
+00DB181C  push        eax  
+00DB181D  push        offset string "b=%d\n\n" (0DB6B3Ch)  
+00DB1822  call        _printf (0DB1320h)  
+00DB1827  add         esp,8  
+
+	a = 5;
+00DB182A  mov         dword ptr [a],5  
+	b = a + (a++);
+00DB1831  mov         eax,dword ptr [a]  
+00DB1834  add         eax,dword ptr [a]  
+00DB1837  mov         dword ptr [b],eax  
+00DB183A  mov         ecx,dword ptr [a]  
+00DB183D  add         ecx,1  
+00DB1840  mov         dword ptr [a],ecx  
+	printf("b = a + (a++);\n");
+00DB1843  push        offset string "b = a + (a++);\n" (0DB6B5Ch)  
+00DB1848  call        _printf (0DB1320h)  
+00DB184D  add         esp,4  
+	printf("b=%d\n\n", b);
+00DB1850  mov         eax,dword ptr [b]  
+00DB1853  push        eax  
+00DB1854  push        offset string "b=%d\n\n" (0DB6B3Ch)  
+00DB1859  call        _printf (0DB1320h)  
+00DB185E  add         esp,8  
+
+	a = 5;
+00DB1861  mov         dword ptr [a],5  
+	b = (a++) + a;
+00DB1868  mov         eax,dword ptr [a]  
+00DB186B  add         eax,dword ptr [a]  
+00DB186E  mov         dword ptr [b],eax  
+00DB1871  mov         ecx,dword ptr [a]  
+00DB1874  add         ecx,1  
+00DB1877  mov         dword ptr [a],ecx  
+	printf("b = (a++) + a;\n");
+00DB187A  push        offset string "b = (a++) + a;\n" (0DB6B70h)  
+00DB187F  call        _printf (0DB1320h)  
+00DB1884  add         esp,4  
+	printf("b=%d\n\n", b);
+00DB1887  mov         eax,dword ptr [b]  
+00DB188A  push        eax  
+00DB188B  push        offset string "b=%d\n\n" (0DB6B3Ch)  
+00DB1890  call        _printf (0DB1320h)  
+00DB1895  add         esp,8  
+
+	a = 5;
+00DB1898  mov         dword ptr [a],5  
+	b = a + (++a);
+00DB189F  mov         eax,dword ptr [a]  
+00DB18A2  add         eax,1  
+00DB18A5  mov         dword ptr [a],eax  
+00DB18A8  mov         ecx,dword ptr [a]  
+00DB18AB  add         ecx,dword ptr [a]  
+00DB18AE  mov         dword ptr [b],ecx  
+	printf("b = a + (++a);\n");
+00DB18B1  push        offset string "b = a + (++a);\n" (0DB6B84h)  
+00DB18B6  call        _printf (0DB1320h)  
+00DB18BB  add         esp,4  
+	printf("b=%d\n\n", b);
+00DB18BE  mov         eax,dword ptr [b]  
+00DB18C1  push        eax  
+00DB18C2  push        offset string "b=%d\n\n" (0DB6B3Ch)  
+00DB18C7  call        _printf (0DB1320h)  
+00DB18CC  add         esp,8  
+
+	a = 5;
+00DB18CF  mov         dword ptr [a],5  
+	b = (++a) + a;
+00DB18D6  mov         eax,dword ptr [a]  
+00DB18D9  add         eax,1  
+00DB18DC  mov         dword ptr [a],eax  
+00DB18DF  mov         ecx,dword ptr [a]  
+00DB18E2  add         ecx,dword ptr [a]  
+00DB18E5  mov         dword ptr [b],ecx  
+	printf("b = (++a) + a;\n");
+00DB18E8  push        offset string "b = (++a) + a;\n" (0DB6B98h)  
+00DB18ED  call        _printf (0DB1320h)  
+00DB18F2  add         esp,4  
+	printf("b=%d\n\n", b);
+00DB18F5  mov         eax,dword ptr [b]  
+	printf("b=%d\n\n", b);
+00DB18F8  push        eax  
+00DB18F9  push        offset string "b=%d\n\n" (0DB6B3Ch)  
+00DB18FE  call        _printf (0DB1320h)  
+00DB1903  add         esp,8  
+
+	a = 5;
+00DB1906  mov         dword ptr [a],5  
+	b = (a++) + (a++);
+00DB190D  mov         eax,dword ptr [a]  
+00DB1910  add         eax,dword ptr [a]  
+00DB1913  mov         dword ptr [b],eax  
+00DB1916  mov         ecx,dword ptr [a]  
+00DB1919  add         ecx,1  
+00DB191C  mov         dword ptr [a],ecx  
+00DB191F  mov         edx,dword ptr [a]  
+00DB1922  add         edx,1  
+00DB1925  mov         dword ptr [a],edx  
+	printf("b = (a++) + (a++);\n");
+00DB1928  push        offset string "b = (a++) + (a++);\n" (0DB6BACh)  
+00DB192D  call        _printf (0DB1320h)  
+00DB1932  add         esp,4  
+	printf("b=%d\n\n", b);
+00DB1935  mov         eax,dword ptr [b]  
+00DB1938  push        eax  
+00DB1939  push        offset string "b=%d\n\n" (0DB6B3Ch)  
+00DB193E  call        _printf (0DB1320h)  
+00DB1943  add         esp,8  
+
+	a = 5;
+00DB1946  mov         dword ptr [a],5  
+	b = (++a) + (++a);
+00DB194D  mov         eax,dword ptr [a]  
+00DB1950  add         eax,1  
+00DB1953  mov         dword ptr [a],eax  
+00DB1956  mov         ecx,dword ptr [a]  
+00DB1959  add         ecx,1  
+00DB195C  mov         dword ptr [a],ecx  
+00DB195F  mov         edx,dword ptr [a]  
+00DB1962  add         edx,dword ptr [a]  
+00DB1965  mov         dword ptr [b],edx  
+	printf("b = (++a) + (++a);\n");
+00DB1968  push        offset string "b = (++a) + (++a);\n" (0DB6BC4h)  
+00DB196D  call        _printf (0DB1320h)  
+00DB1972  add         esp,4  
+	printf("b=%d\n\n", b);
+00DB1975  mov         eax,dword ptr [b]  
+00DB1978  push        eax  
+00DB1979  push        offset string "b=%d\n\n" (0DB6B3Ch)  
+00DB197E  call        _printf (0DB1320h)  
+00DB1983  add         esp,8  
+
+	a = 5;
+00DB1986  mov         dword ptr [a],5  
+	b = (a++) + (++a);
+00DB198D  mov         eax,dword ptr [a]  
+	b = (a++) + (++a);
+00DB1990  add         eax,1  
+00DB1993  mov         dword ptr [a],eax  
+00DB1996  mov         ecx,dword ptr [a]  
+00DB1999  add         ecx,dword ptr [a]  
+00DB199C  mov         dword ptr [b],ecx  
+00DB199F  mov         edx,dword ptr [a]  
+00DB19A2  add         edx,1  
+00DB19A5  mov         dword ptr [a],edx  
+	printf("b = (a++) + (++a);\n");
+00DB19A8  push        offset string "b = (a++) + (++a);\n" (0DB6BDCh)  
+00DB19AD  call        _printf (0DB1320h)  
+00DB19B2  add         esp,4  
+	printf("b=%d\n\n", b);
+00DB19B5  mov         eax,dword ptr [b]  
+00DB19B8  push        eax  
+00DB19B9  push        offset string "b=%d\n\n" (0DB6B3Ch)  
+00DB19BE  call        _printf (0DB1320h)  
+00DB19C3  add         esp,8  
+
+	a = 5;
+00DB19C6  mov         dword ptr [a],5  
+	b = (++a) + (a++);
+00DB19CD  mov         eax,dword ptr [a]  
+00DB19D0  add         eax,1  
+00DB19D3  mov         dword ptr [a],eax  
+00DB19D6  mov         ecx,dword ptr [a]  
+00DB19D9  add         ecx,dword ptr [a]  
+00DB19DC  mov         dword ptr [b],ecx  
+00DB19DF  mov         edx,dword ptr [a]  
+00DB19E2  add         edx,1  
+00DB19E5  mov         dword ptr [a],edx  
+	printf("b = (++a) + (a++);\n");
+00DB19E8  push        offset string "b = (++a) + (a++);\n" (0DB6BF4h)  
+00DB19ED  call        _printf (0DB1320h)  
+00DB19F2  add         esp,4  
+	printf("b=%d\n\n", b);
+00DB19F5  mov         eax,dword ptr [b]  
+00DB19F8  push        eax  
+00DB19F9  push        offset string "b=%d\n\n" (0DB6B3Ch)  
+00DB19FE  call        _printf (0DB1320h)  
+00DB1A03  add         esp,8  
+
+
+	return 0;
+00DB1A06  xor         eax,eax  
+}
